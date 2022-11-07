@@ -14,14 +14,10 @@ import { CharacterModule } from 'resources/character/character.module'
   imports: [
     PrismaModule.forRoot({
       isGlobal: true,
-      // prismaServiceOptions: {
-      //   explicitConnect: true,
-      // },
     }),
-
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: join(process.cwd(), 'graphql/generated.gql'),
     }),
     CharacterModule,
   ],

@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  """name of character"""
+  name: String!
+
+  """description of character"""
+  description: String!
+}
+
+type Query {
+  character(id: String!): Character!
+}
