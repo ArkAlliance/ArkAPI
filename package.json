@@ -1,8 +1,8 @@
 {
   "name": "arkapi-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "ArkAPI is the Arknights resource API",
+  "author": "ArkAlliance <me@galvingao.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
