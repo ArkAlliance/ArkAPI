@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  """
+  name of character
+  """
+  name: String!
+
+  """
+  description of character
+  """
+  description: String!
+}
+
+type Query {
+  character(id: Int!): Character!
+}
+
+type Mutation {
+  createCharacter(createCharacterInput: CreateCharacterInput!): Character!
+  updateCharacter(updateCharacterInput: UpdateCharacterInput!): Character!
+  removeCharacter(id: Int!): Character!
+}
+
+input CreateCharacterInput {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int!
+}
+
+input UpdateCharacterInput {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int
+  id: Int!
+}
