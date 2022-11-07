@@ -3,13 +3,17 @@
 # ------------------------------------------------------
 
 type Character {
-  """name of character"""
+  """The ID of the character"""
+  id: String!
+
+  """The name of character"""
   name: String!
 
-  """description of character"""
+  """The description of character"""
   description: String!
 }
 
 type Query {
+  characters: [Character!]!
   character(id: String!): Character!
 }

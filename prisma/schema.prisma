@@ -11,8 +11,9 @@ datasource db {
 }
 
 model Character {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  name        String @unique
+  objectId    String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String @unique
+  name        String
   description String
 
   @@map("characters")

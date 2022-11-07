@@ -1,10 +1,25 @@
-import { Field, ObjectType } from '@nestjs/graphql'
+import { HideField, ObjectType } from '@nestjs/graphql'
+
+import { Exclude } from 'class-transformer'
 
 @ObjectType()
 export class Character {
-  @Field({ description: 'name of character' })
+  @Exclude()
+  @HideField()
+  objectId: string
+
+  /**
+   * The ID of the character
+   */
+  id: string
+
+  /**
+   * The name of character
+   */
   name: string
 
-  @Field({ description: 'description of character' })
+  /**
+   * The description of character
+   */
   description: string
 }

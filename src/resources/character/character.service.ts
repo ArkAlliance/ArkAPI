@@ -1,18 +1,24 @@
 import { Injectable } from '@nestjs/common'
 
+import { plainToInstance } from 'class-transformer'
 import { PrismaService } from 'nestjs-prisma'
+
+import { Character } from './entities/character.entity'
 
 @Injectable()
 export class CharacterService {
   constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return this.prisma.character.findMany()
+  async findAll() {
+    return plainToInstance(Character, await this.prisma.character.findMany())
   }
 
-  findOne(id: string) {
-    return this.prisma.character.findUnique({
-      where: { id },
-    })
+  async findOne(id: string) {
+    return plainToInstance(
+      Character,
+      await this.prisma.character.findUnique({
+        where: { id },
+      }),
+    )
   }
 }

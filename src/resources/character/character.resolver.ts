@@ -8,7 +8,7 @@ import { Character } from './entities/character.entity'
 export class CharacterResolver {
   constructor(private readonly characterService: CharacterService) {}
 
-  @Query(() => [Character], { name: 'character' })
+  @Query(() => [Character], { name: 'characters' })
   findAll() {
     return this.characterService.findAll()
   }
