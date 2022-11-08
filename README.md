@@ -1,4 +1,4 @@
-![Banner](https://raw.githubusercontent.com/ArkAlliance/ArkAPI/main/docs/assets/banner.png)
+![Banner](https://cdn.jsdelivr.net/gh/ArkAlliance/ArkAPI/docs/assets/banner.png)
 
 ## Intro 简介
 
@@ -74,3 +74,7 @@ ArkAPI 欢迎任何形式的贡献，包括但不限于：
 
 - 提交目的明确、描述清晰的 Issues
 - 提交 Pull Requests
+
+## Credits 致谢
+
+- [Kengxxiao/ArknightsGameData](https://github.com/Kengxxiao/ArknightsGameData) 提供 API 所需的原始数据
