@@ -1,38 +1,34 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+![Banner](https://raw.githubusercontent.com/ArkAlliance/ArkAPI/main/docs/assets/banner.png)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Intro 简介
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+ArkAPI 是由 [ArkAlliance](https://github.com/ArkAlliance) 发起的明日方舟资源公共 API，皆在为明日方舟工具站生态提供稳定、易于接入且面向用户体验优化的 API 服务。
 
-## Description
+ArkAPI 现处于早期开发阶段，欢迎创建 Issues 或/和 Pull Requests 与我们一起完善 ArkAPI。
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Guide 接入指南
 
-## Installation
+ArkAPI 将提供两种 API 接入方式：**RESTful API** 和 **GraphQL API** ([什么是 GraphQL?](https://graphql.org))。
+
+两种接入方式所提供的 API 服务内容均相同，但 GraphQL API 提供了更为强大的查询功能。
+
+> 接入指南仍在建设中，敬请期待
+
+## Development 开发与贡献指南
+
+### Setup
+
+- [Node.js](https://nodejs.org/) (>= 16)
+  - 强烈建议使用 [nvm](https://github.com/nvm-sh/nvm) 进行 Node.js 版本管理；通过 nvm 可直接使用 `.nvmrc` 文件中的版本号安装 Node.js: `nvm install`
+- **请注意：**项目使用 [npm](https://www.npmjs.com/) 进行依赖管理（而非 [yarn](https://yarnpkg.com/)）；不当使用包管理器可能导致项目依赖不一致，从而导致项目无法正常运行，因此请务必使用 npm 进行所有操作。
+
+### Install
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+### Running the app
 
 ```bash
 # development
@@ -45,7 +41,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+### Tests
 
 ```bash
 # unit tests
@@ -58,16 +54,23 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## License 协议
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+ArkAPI 源代码以 [AGPL-3.0](https://github.com/ArkAlliance/ArkAPI/blob/main/LICENSE) 开源。
 
-## Stay in touch
+ArkAPI 的服务内容以 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 协议开放。
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Security Disclosure 安全漏洞披露
 
-## License
+如果您发现了安全漏洞，请发送 E-mail 至 `me at galvingao dot com`，我们将尽快处理。ArkAPI 感谢您对其安全的关注，并希望您能遵守以下安全披露原则：
 
-Nest is [MIT licensed](LICENSE).
+- 请不要在收到我们已修复漏洞的回复前公开披露安全漏洞；
+- 请在安全漏洞报告中提供尽可能多的信息，例如漏洞的影响范围、复现步骤、漏洞的危害等；
+- 请同时在安全漏洞报告中提供测试此漏洞时所使用的环境信息，例如 `User-Agent`、鉴权信息、IP 地址等，以便我们更快地定位问题。
+
+## Contributing 贡献
+
+ArkAPI 欢迎任何形式的贡献，包括但不限于：
+
+- 提交目的明确、描述清晰的 Issues
+- 提交 Pull Requests

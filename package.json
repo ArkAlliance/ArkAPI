@@ -1,10 +1,13 @@
 {
   "name": "arkapi-backend",
   "version": "0.0.1",
-  "description": "ArkAPI is the Arknights resource API",
+  "description": "ArkAPI is the Arknights resource public API service.",
   "author": "ArkAlliance <me@galvingao.com>",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
