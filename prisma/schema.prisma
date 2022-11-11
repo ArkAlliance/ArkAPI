@@ -11,10 +11,38 @@ datasource db {
 }
 
 model Character {
-  objectId    String @id @default(auto()) @map("_id") @db.ObjectId
-  id          String @unique
-  name        String
-  description String
+  objectId                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  id                          String   @unique
+  name                        String
+  description                 String?
+  canUseGeneralPotentialItem  Boolean
+  canUseActivityPotentialItem Boolean
+  potentialItemId             String?
+  activityPotentialItemId     String?
+  nationId                    String?
+  groupId                     String?
+  teamId                      String?
+  displayNumber               String?
+  tokenKey                    String?
+  appellation                 String
+  position                    String
+  tagList                     String[]
+  itemUsage                   String?
+  itemDesc                    String?
+  itemObtainApproach          String?
+  isNotObtainable             Boolean
+  isSpChar                    Boolean
+  maxPotentialLevel           Int
+  rarity                      Int
+  profession                  String
+  subProfessionId             String
+  trait                       Json?
+  phases                      Json[]
+  skills                      Json[]
+  talents                     Json[]
+  potentialRanks              Json[]
+  favorKeyFrames              Json[]
+  allSkillLvlup               Json[]
 
   @@map("characters")
 }

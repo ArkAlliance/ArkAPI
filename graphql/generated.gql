@@ -11,6 +11,162 @@ type Character {
 
   """The description of character"""
   description: String!
+  canUseGeneralPotentialItem: Boolean!
+  canUseActivityPotentialItem: Boolean!
+  potentialItemId: String
+  activityPotentialItemId: String
+  nationId: String
+  groupId: String
+  teamId: String
+  displayNumber: String
+  tokenKey: String
+  appellation: String!
+  position: String!
+  tagList: [String!]!
+  itemUsage: String
+  itemDesc: String
+  itemObtainApproach: String
+  isNotObtainable: Boolean!
+  isSpChar: Boolean!
+  maxPotentialLevel: Float!
+  rarity: Float!
+  profession: String!
+  subProfessionId: String!
+  trait: Trait
+  phases: [Phase!]!
+  skills: [Skill!]!
+  talents: [Talent!]
+  potentialRanks: [PotentialRank!]!
+  favorKeyFrames: [KeyFrame!]
+  allSkillLvlup: [AllSkillLvlup!]!
+}
+
+type AllSkillLvlup {
+  unlockCond: UnlockCond!
+  lvlUpCost: [Cost!]
+}
+
+type Cost {
+  id: String!
+  count: Float!
+  type: String!
+}
+
+type UnlockCond {
+  phase: Float!
+  level: Float!
+}
+
+type KeyFrame {
+  level: Float!
+  data: Data!
+}
+
+type Data {
+  maxHp: Float!
+  atk: Float!
+  def: Float!
+  magicResistance: Float!
+  cost: Float!
+  blockCnt: Float!
+  moveSpeed: Float!
+  attackSpeed: Float!
+  baseAttackTime: Float!
+  respawnTime: Float!
+  hpRecoveryPerSec: Float!
+  spRecoveryPerSec: Float!
+  maxDeployCount: Float!
+  maxDeckStackCnt: Float!
+  tauntLevel: Float!
+  massLevel: Float!
+  baseForceLevel: Float!
+  stunImmune: Boolean!
+  silenceImmune: Boolean!
+  sleepImmune: Boolean!
+  frozenImmune: Boolean!
+  levitateImmune: Boolean!
+}
+
+type Phase {
+  characterPrefabKey: String!
+  rangeId: String
+  maxLevel: Float!
+  attributesKeyFrames: [KeyFrame!]!
+  evolveCost: [Cost!]
+}
+
+type PotentialRank {
+  type: Float!
+  description: String!
+  buff: Buff
+  equivalentCost: String
+}
+
+type Buff {
+  attributes: Attributes!
+}
+
+type Attributes {
+  abnormalFlags: String
+  abnormalImmunes: String
+  abnormalAntis: String
+  abnormalCombos: String
+  abnormalComboImmunes: String
+  attributeModifiers: [AttributeModifier!]!
+}
+
+type AttributeModifier {
+  attributeType: Float!
+  formulaItem: Float!
+  value: Float!
+  loadFromBlackboard: Boolean!
+  fetchBaseValueFromSourceEntity: Boolean!
+}
+
+type Skill {
+  skillId: String
+  overridePrefabKey: String
+  overrideTokenKey: String
+  levelUpCostCond: [LevelUpCostCond!]!
+  unlockCond: UnlockCond!
+}
+
+type LevelUpCostCond {
+  unlockCond: UnlockCond!
+  lvlUpTime: Float!
+  levelUpCost: [Cost!]
+}
+
+type Talent {
+  candidates: [TalentCandidate!]
+}
+
+type TalentCandidate {
+  unlockCondition: UnlockCond!
+  requiredPotentialRank: Float!
+  prefabKey: String!
+  name: String
+  description: String
+  rangeId: String
+  blackboard: [Blackboard!]!
+}
+
+type Blackboard {
+  key: String!
+  value: Float!
+}
+
+type Trait {
+  candidates: [TraitCandidate!]!
+}
+
+type TraitCandidate {
+  unlockCondition: UnlockCond!
+  requiredPotentialRank: Float!
+  blackboard: [Blackboard!]!
+  overrideDescripton: String
+  prefabKey: String
+  rangeId: String
 }
 
 type Query {
