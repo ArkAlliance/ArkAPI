@@ -18,3 +18,27 @@ model Character {
 
   @@map("characters")
 }
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  avatarUrl String
+  email     String
+  name      String
+  username  String
+  apiKeys   ApiKey[]
+
+  oauthUserId      Int    @unique
+  oauthAccessToken String
+
+  @@map("users")
+}
+
+model ApiKey {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  key    String @unique
+  name   String
+
+  @@map("api_keys")
+}
