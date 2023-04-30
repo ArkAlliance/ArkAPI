@@ -28,33 +28,39 @@ ArkAPI 将提供两种 API 接入方式：**RESTful API** 和 **GraphQL API** ([
 ### Install
 
 ```bash
-$ npm install
+$ pnpm install
+```
+
+### Initialize database schema
+
+```bash
+$ pnpx prisma migrate dev
 ```
 
 ### Running the app
 
 ```bash
 # development
-$ npm run start
+$ pnpm start
 
 # watch mode
-$ npm run start:dev
+$ pnpm start:dev
 
 # production mode
-$ npm run start:prod
+$ pnpm start:prod
 ```
 
 ### Tests
 
 ```bash
 # unit tests
-$ npm run test
+$ pnpm test
 
 # e2e tests
-$ npm run test:e2e
+$ pnpm test:e2e
 
 # test coverage
-$ npm run test:cov
+$ pnpm test:cov
 ```
 
 ## License 协议
