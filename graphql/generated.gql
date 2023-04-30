@@ -44,6 +44,6 @@ enum ArkCharacterPosition {
 }
 
 type Query {
-  characters: [Character!]!
-  character(id: String!): Character!
+  characters(server: String!): [Character!]!
+  character(server: String!, id: String!): Character!
 }
