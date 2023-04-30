@@ -22,14 +22,14 @@ type Character {
   
   干员职业
   """
-  profession: String!
+  profession: ArkCharacterProfession!
 
   """
   Character Position is the position category that a character can be deployed to.
   
   干员可部署位
   """
-  position: String!
+  position: ArkCharacterPosition!
 
   """
   Character Rarity is the rarity of a character. The rarity is a number in range [0, 5] where a rarity of `0` corresponds to a 1-star character and a rarity of `5` corresponds to a 6-star character.
@@ -37,7 +37,49 @@ type Character {
   干员稀有度。稀有度是一个范围在 [0, 5] 的数字，其中稀有度为 `0` 对应 1 星干员、为 `5` 对应 6 星干员
   """
   rarity: Float!
+
+  """
+  Character Data is the original JSON data of the character.
+  
+  干员原始数据
+  """
   data: JSON!
+}
+
+"""Character Profession 干员职业"""
+enum ArkCharacterProfession {
+  """Pioneer 先锋"""
+  PIONEER
+
+  """Sniper 狙击"""
+  SNIPER
+
+  """Caster 术师"""
+  CASTER
+
+  """Medic 医疗"""
+  MEDIC
+
+  """Warrior 近卫"""
+  WARRIOR
+
+  """Tank 重装"""
+  TANK
+
+  """Support 辅助"""
+  SUPPORT
+
+  """Special 特种"""
+  SPECIAL
+}
+
+"""Character Deployment Position 干员可部署位"""
+enum ArkCharacterPosition {
+  """Melee 近战位"""
+  MELEE
+
+  """Ranged 远程位"""
+  RANGED
 }
 
 """
