@@ -1,8 +1,8 @@
 import { ArkServer, PrismaClient } from '@prisma/client'
+import { logger } from 'common/logger'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { Logger } from 'pino'
-import { logger } from 'pkg/logger'
 
 export interface ResourceImporterInit {
   server: ArkServer

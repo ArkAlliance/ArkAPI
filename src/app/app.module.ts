@@ -6,13 +6,14 @@ import { GraphQLModule } from '@nestjs/graphql'
 
 import { join } from 'path'
 
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
 import { AuthModule } from 'auth/auth.module'
 import { PrismaModule } from 'nestjs-prisma'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
 
 import { configure, configureSchema } from 'config'
 import { CharacterModule } from 'resources/character/character.module'
+import GraphQLJSON from 'graphql-type-json'
 
 @Module({
   imports: [
@@ -23,6 +24,10 @@ import { CharacterModule } from 'resources/character/character.module'
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'graphql/generated.gql'),
       buildSchemaOptions: {},
+      persistedQueries: {
+        ttl: 900,
+      },
+      resolvers: { JSON: GraphQLJSON },
     }),
     ConfigModule.forRoot({
       isGlobal: true,

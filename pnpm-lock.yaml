@@ -49,6 +49,9 @@ dependencies:
   graphql:
     specifier: ^16.6.0
     version: 16.6.0
+  graphql-type-json:
+    specifier: ^0.3.2
+    version: 0.3.2(graphql@16.6.0)
   joi:
     specifier: ^17.9.2
     version: 17.9.2
@@ -4349,6 +4352,14 @@ packages:
     dependencies:
       graphql: 16.6.0
       tslib: 2.5.0
+    dev: false
+
+  /graphql-type-json@0.3.2(graphql@16.6.0):
+    resolution: {integrity: sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==}
+    peerDependencies:
+      graphql: '>=0.8.0'
+    dependencies:
+      graphql: 16.6.0
     dev: false
 
   /graphql-ws@5.12.1(graphql@16.6.0):

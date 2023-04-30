@@ -16,6 +16,8 @@ enum ArkServer {
   JP
   KR
   TW
+
+  @@map("ark_servers")
 }
 
 /// `ArkCharacterProfession`: 干员职业
@@ -36,6 +38,8 @@ enum ArkCharacterProfession {
   SUPPORT
   /// `SPECIAL`: 特种
   SPECIAL
+
+  @@map("ark_character_professions")
 }
 
 /// `ArkCharacterPosition`: 干员位置
@@ -44,6 +48,8 @@ enum ArkCharacterPosition {
   MELEE
   /// `RANGED`: 远程
   RANGED
+
+  @@map("ark_character_positions")
 }
 
 /// `ArkCharacter`: 干员

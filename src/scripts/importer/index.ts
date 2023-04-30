@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 
+import { logger } from 'common/logger'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { logger } from 'pkg/logger'
 import { imports } from 'scripts/importer/config'
 import { accessible, execCommand } from 'scripts/importer/utils/exec'
 

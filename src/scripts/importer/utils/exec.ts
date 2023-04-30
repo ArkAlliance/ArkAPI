@@ -1,3 +1,4 @@
+import { logger } from 'common/logger'
 import {
   spawn,
   SpawnOptionsWithStdioTuple,
@@ -5,7 +6,6 @@ import {
   StdioPipe,
 } from 'node:child_process'
 import fs from 'node:fs/promises'
-import { logger } from 'pkg/logger'
 
 const log = logger.child({ name: 'importer-exec' })
 

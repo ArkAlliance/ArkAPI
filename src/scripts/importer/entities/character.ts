@@ -1,6 +1,7 @@
+import { ArkCharacterValueUnion } from 'models/generated/ArkCharacter'
 import { quicktypeToTypeScript } from 'scripts/importer/quicktype'
 import { generateId } from 'scripts/importer/utils/snowflake'
-import type { JsonObject, ValueOf } from 'type-fest'
+import type { JsonObject } from 'type-fest'
 import { ResourceImporterBase, ResourceImporterInit } from '../importer'
 
 export class CharacterResourceImporter extends ResourceImporterBase {
@@ -11,7 +12,7 @@ export class CharacterResourceImporter extends ResourceImporterBase {
   async introspectType() {
     const file = await this._readJsonFile('gamedata/excel/character_table.json')
     const tsDef = await quicktypeToTypeScript({
-      name: 'ArkCharacter',
+      name: 'ArkCharacter' + this.server,
       samples: [JSON.stringify(file)],
     })
 
@@ -22,13 +23,14 @@ export class CharacterResourceImporter extends ResourceImporterBase {
     this.logger.info('importing')
     await this.introspectType()
 
-    const content = (await this._readJsonFile(
+    const content = await this._readJsonFile(
       'gamedata/excel/character_table.json',
-    )) as ArkCharacter.ArkCharacter
+    )
 
-    for (const [characterId, character] of Object.entries<
-      ValueOf<ArkCharacter.ArkCharacter>
-    >(content as any)) {
+    for (const [
+      characterId,
+      character,
+    ] of Object.entries<ArkCharacterValueUnion>(content as any)) {
       if (character.profession === 'TOKEN' || character.profession === 'TRAP')
         continue
 

@@ -1,4 +1,5 @@
-import { ObjectType, registerEnumType } from '@nestjs/graphql'
+import { Field, ObjectType, registerEnumType } from '@nestjs/graphql'
+import GraphQLJSON from 'graphql-type-json'
 
 export enum ArkCharacterProfession {
   PIONEER = 'PIONEER',
@@ -33,33 +34,22 @@ registerEnumType(ArkCharacterPosition, {
 
 @ObjectType()
 export class Character {
-  /**
-   * The ID of the character
-   */
+  /** The ID of the character */
   id: string
 
-  /**
-   * The name of the character
-   */
+  /** The name of the character */
   name: string
 
-  /**
-   * The profession of character
-   */
+  /** The profession of character */
   profession: ArkCharacterProfession
 
-  /**
-   * The position of character
-   */
+  /** The position of character */
   position: ArkCharacterPosition
 
-  /**
-   * The rarity of character
-   */
+  /** The rarity of character */
   rarity: number
 
-  /**
-   * The original data of character
-   */
-  // data: Record<string, unknown>
+  /** The original data of character */
+  @Field(() => GraphQLJSON)
+  data: JSON
 }

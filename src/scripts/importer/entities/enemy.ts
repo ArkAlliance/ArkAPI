@@ -11,7 +11,7 @@ export class EnemyResourceImporter extends ResourceImporterBase {
       'gamedata/levels/enemydata/enemy_database.json',
     )
     const tsDef = await quicktypeToTypeScript({
-      name: 'ArkEnemy',
+      name: 'ArkEnemy' + this.server,
       samples: Object.values(file.enemies).flatMap((el) => {
         const value = (el as any)?.Value?.[0]
         if (value) {
