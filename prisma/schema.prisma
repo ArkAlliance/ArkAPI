@@ -6,39 +6,121 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Character {
-  objectId    String @id @default(auto()) @map("_id") @db.ObjectId
-  id          String @unique
-  name        String
-  description String
+enum ArkServer {
+  CN
+  US
+  JP
+  KR
+  TW
+}
 
-  @@map("characters")
+/// `ArkCharacterProfession`: 干员职业
+enum ArkCharacterProfession {
+  /// `PIONEER`: 先锋
+  PIONEER
+  /// `SNIPER`: 狙击
+  SNIPER
+  /// `CASTER`: 术师
+  CASTER
+  /// `MEDIC`: 医疗
+  MEDIC
+  /// `WARRIOR`: 近卫
+  WARRIOR
+  /// `TANK`: 重装
+  TANK
+  /// `SUPPORT`: 辅助
+  SUPPORT
+  /// `SPECIAL`: 特种
+  SPECIAL
+}
+
+/// `ArkCharacterPosition`: 干员位置
+enum ArkCharacterPosition {
+  /// `MELEE`: 近战
+  MELEE
+  /// `RANGED`: 远程
+  RANGED
+}
+
+/// `ArkCharacter`: 干员
+model ArkCharacter {
+  // ArkAPI metadata
+  id     String    @id
+  server ArkServer @default(CN)
+
+  // GameData extracted
+  gameId     String
+  name       String
+  /// `profession`: 干员职业
+  profession ArkCharacterProfession
+  /// `position`: 干员位置
+  position   ArkCharacterPosition
+  rarity     Int
+
+  // GameData original
+  data Json
+
+  @@unique([server, gameId])
+  @@map("ark_characters")
 }
 
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String @id
   avatarUrl String
   email     String
   name      String
   username  String
-  apiKeys   ApiKey[]
 
-  oauthUserId      Int    @unique
-  oauthAccessToken String
+  oauthConnections OAuthConnection[]
+
+  applications Application[]
+  accessKeys   AccessKey[]
 
   @@map("users")
 }
 
-model ApiKey {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
+enum OAuthConnectionType {
+  GITHUB
+}
+
+model OAuthConnection {
+  id          String              @id
+  userId      String
+  type        OAuthConnectionType
+  accessToken String
+
+  extra Json @default("{}")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("oauth_connections")
+}
+
+model Application {
+  id     String @id
   userId String
-  user   User   @relation(fields: [userId], references: [id])
-  key    String @unique
   name   String
 
-  @@map("api_keys")
+  user User @relation(fields: [userId], references: [id])
+
+  accessKeys AccessKey[]
+
+  @@map("applications")
+}
+
+model AccessKey {
+  id            String @id
+  userId        String
+  applicationId String
+  key           String @unique
+  name          String
+
+  user        User        @relation(fields: [userId], references: [id])
+  application Application @relation(fields: [applicationId], references: [id])
+
+  @@map("access_keys")
 }

@@ -1,25 +1,65 @@
-import { HideField, ObjectType } from '@nestjs/graphql'
+import { ObjectType, registerEnumType } from '@nestjs/graphql'
 
-import { Exclude } from 'class-transformer'
+export enum ArkCharacterProfession {
+  PIONEER = 'PIONEER',
+  SNIPER = 'SNIPER',
+  CASTER = 'CASTER',
+  MEDIC = 'MEDIC',
+  WARRIOR = 'WARRIOR',
+  TANK = 'TANK',
+  SUPPORT = 'SUPPORT',
+  SPECIAL = 'SPECIAL',
+}
+
+registerEnumType(ArkCharacterProfession, {
+  name: 'ArkCharacterProfession',
+})
+
+export enum ArkCharacterPosition {
+  /**
+   * `MELEE`: 近战
+   */
+  MELEE = 'MELEE',
+
+  /**
+   * `RANGED`: 远程
+   */
+  RANGED = 'RANGED',
+}
+
+registerEnumType(ArkCharacterPosition, {
+  name: 'ArkCharacterPosition',
+})
 
 @ObjectType()
 export class Character {
-  @Exclude()
-  @HideField()
-  objectId: string
-
   /**
    * The ID of the character
    */
   id: string
 
   /**
-   * The name of character
+   * The name of the character
    */
   name: string
 
   /**
-   * The description of character
+   * The profession of character
    */
-  description: string
+  profession: ArkCharacterProfession
+
+  /**
+   * The position of character
+   */
+  position: ArkCharacterPosition
+
+  /**
+   * The rarity of character
+   */
+  rarity: number
+
+  /**
+   * The original data of character
+   */
+  // data: Record<string, unknown>
 }

@@ -22,6 +22,7 @@ import { CharacterModule } from 'resources/character/character.module'
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'graphql/generated.gql'),
+      buildSchemaOptions: {},
     }),
     ConfigModule.forRoot({
       isGlobal: true,

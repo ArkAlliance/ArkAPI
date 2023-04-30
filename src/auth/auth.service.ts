@@ -36,19 +36,20 @@ export class AuthService {
       },
     )
 
-    return await this.prisma.user.upsert({
-      where: {
-        oauthUserId: profile.id,
-      },
-      update: {},
-      create: {
-        avatarUrl: profile.avatar_url,
-        email: profile.email,
-        name: profile.name,
-        username: profile.login,
-        oauthUserId: profile.id,
-        oauthAccessToken: token.access_token,
-      },
-    })
+    // return await this.prisma.user.upsert({
+    //   where: {},
+    //   update: {},
+    //   create: {
+    //     avatarUrl: profile.avatar_url,
+    //     email: profile.email,
+    //     name: profile.name,
+    //     username: profile.login,
+    //     oauthConnections: {
+    //       upsert: {
+    //         type: OAuthConnectionType.GITHUB,
+    //       },
+    //     },
+    //   },
+    // })
   }
 }

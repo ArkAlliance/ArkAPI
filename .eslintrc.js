@@ -18,10 +18,6 @@ module.exports = {
     'prettier',
   ],
   ignorePatterns: ['.eslintrc.js'],
-  parserOptions: {
-    project: './tsconfig.json',
-    tsconfigRootDir: './',
-  },
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
