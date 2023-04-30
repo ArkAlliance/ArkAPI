@@ -1,4 +1,5 @@
 import { Field, ObjectType, registerEnumType } from '@nestjs/graphql'
+import { FieldDescription } from 'common/entity'
 import GraphQLJSON from 'graphql-type-json'
 
 export enum ArkCharacterProfession {
@@ -74,46 +75,40 @@ registerEnumType(ArkCharacterPosition, {
 
 @ObjectType()
 export class Character {
-  /**
-   * Character ID is an ArkAPI internal ID that is guaranteed to be unique and attached semantically to a specific `character` in the game.
-   *
-   * 一个保证唯一的 ArkAPI 内部 ID。此 ID 在语义上保证与游戏中的一个特定「干员」相对应
-   */
+  @FieldDescription(`
+    Character ID is an ArkAPI internal ID that is guaranteed to be unique and attached semantically to a specific \`character\` in the game.
+
+    一个保证唯一的 ArkAPI 内部 ID。此 ID 在语义上保证与游戏中的一个特定「干员」相对应`)
   id: string
 
-  /**
-   * Character Name is the name of the character in the game. The name localization is based on the server queried. ArkAPI will not translate and will instead just provide the name as-is.
-   *
-   * 游戏中的干员名称。名称本地化基于查询的服务器。ArkAPI 不会对干员名称自行翻译，而是直接提供原始名称
-   */
+  @FieldDescription(`
+    Character Name is the name of the character in the game. The name localization is based on the server queried. ArkAPI will not translate and will instead just provide the name as-is.
+
+    游戏中的干员名称。名称本地化基于查询的服务器。ArkAPI 不会对干员名称自行翻译，而是直接提供原始名称`)
   name: string
 
-  /**
-   * Character Profession is the professions that a character can be categorized into.
-   *
-   * 干员职业
-   */
+  @FieldDescription(`
+    Character Profession is the professions that a character can be categorized into.
+
+    干员职业`)
   profession: ArkCharacterProfession
 
-  /**
-   * Character Position is the position category that a character can be deployed to.
-   *
-   * 干员可部署位
-   */
+  @FieldDescription(`
+    Character Position is the position category that a character can be deployed to.
+
+    干员可部署位`)
   position: ArkCharacterPosition
 
-  /**
-   * Character Rarity is the rarity of a character. The rarity is a number in range [0, 5] where a rarity of `0` corresponds to a 1-star character and a rarity of `5` corresponds to a 6-star character.
-   *
-   * 干员稀有度。稀有度是一个范围在 [0, 5] 的数字，其中稀有度为 `0` 对应 1 星干员、为 `5` 对应 6 星干员
-   */
+  @FieldDescription(`
+    Character Rarity is the rarity of a character. The rarity is a number in range [0, 5] where a rarity of \`0\` corresponds to a 1-star character and a rarity of \`5\` corresponds to a 6-star character.
+
+    干员稀有度。稀有度是一个范围在 [0, 5] 的数字，其中稀有度为 \`0\` 对应 1 星干员、为 \`5\` 对应 6 星干员`)
   rarity: number
 
-  /**
-   * Character Data is the original JSON data of the character.
-   *
-   * 干员原始数据
-   */
+  //   @FieldDescription(`
+  // Character Data is the original JSON data of the character.
+
+  // 干员原始数据`)
   @Field(() => GraphQLJSON)
   data: JSON
 }

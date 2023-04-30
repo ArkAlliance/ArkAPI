@@ -2,6 +2,7 @@ import { Controller, Get, Param } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { ArkServer } from '@prisma/client'
 import { CommonQuery } from 'adornments/decorators/commonQuery'
+import { Character } from 'resources/character/entities/character.entity'
 
 import { CharacterService } from './character.service'
 
@@ -12,13 +13,16 @@ export class CharacterController {
 
   @Get()
   @CommonQuery()
-  findAll(@Param('server') server: ArkServer) {
+  findAll(@Param('server') server: ArkServer): Promise<Character[]> {
     return this.characterService.findAll({ server })
   }
 
   @Get(':id')
   @CommonQuery()
-  findOne(@Param('server') server: ArkServer, @Param('id') id: string) {
+  findOne(
+    @Param('server') server: ArkServer,
+    @Param('id') id: string,
+  ): Promise<Character> {
     return this.characterService.findOne({ server }, { id })
   }
 }
