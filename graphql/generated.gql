@@ -43,7 +43,7 @@ type Character {
   
   干员原始数据
   """
-  data: JSON!
+  data: JSON
 }
 
 """Character Profession 干员职业"""

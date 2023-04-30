@@ -121,6 +121,9 @@ export class Character {
 
     干员原始数据`,
     {
+      graphql: {
+        nullable: true,
+      },
       graphqlType: () => GraphQLJSON,
     },
   )
