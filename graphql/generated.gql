@@ -3,22 +3,46 @@
 # ------------------------------------------------------
 
 type Character {
-  """The original data of character"""
+  """
+  Character Data is the original JSON data of the character.
+  
+  干员原始数据
+  """
   data: JSON!
 
-  """The ID of the character"""
+  """
+  Character ID is an ArkAPI internal ID that is guaranteed to be unique and attached semantically to a specific `character` in the game.
+  
+  一个保证唯一的 ArkAPI 内部 ID。此 ID 在语义上保证与游戏中的一个特定「干员」相对应
+  """
   id: String!
 
-  """The name of the character"""
+  """
+  Character Name is the name of the character in the game. The name localization is based on the server queried. ArkAPI will not translate and will instead just provide the name as-is.
+  
+  游戏中的干员名称。名称本地化基于查询的服务器。ArkAPI 不会对干员名称自行翻译，而是直接提供原始名称
+  """
   name: String!
 
-  """The profession of character"""
+  """
+  Character Profession is the professions that a character can be categorized into.
+  
+  干员职业
+  """
   profession: ArkCharacterProfession!
 
-  """The position of character"""
+  """
+  Character Position is the position category that a character can be deployed to.
+  
+  干员可部署位
+  """
   position: ArkCharacterPosition!
 
-  """The rarity of character"""
+  """
+  Character Rarity is the rarity of a character. The rarity is a number in range [0, 5] where a rarity of `0` corresponds to a 1-star character and a rarity of `5` corresponds to a 6-star character.
+  
+  干员稀有度。稀有度是一个范围在 [0, 5] 的数字，其中稀有度为 `0` 对应 1 星干员、为 `5` 对应 6 星干员
+  """
   rarity: Float!
 }
 
@@ -27,19 +51,39 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 """
 scalar JSON
 
+"""Character Profession 角色职业"""
 enum ArkCharacterProfession {
+  """Pioneer 先锋"""
   PIONEER
+
+  """Sniper 狙击"""
   SNIPER
+
+  """Caster 术师"""
   CASTER
+
+  """Medic 医疗"""
   MEDIC
+
+  """Warrior 近卫"""
   WARRIOR
+
+  """Tank 重装"""
   TANK
+
+  """Support 辅助"""
   SUPPORT
+
+  """Special 特种"""
   SPECIAL
 }
 
+"""Character Deployment Position 角色可部署位"""
 enum ArkCharacterPosition {
+  """Melee 近战位"""
   MELEE
+
+  """Ranged 远程位"""
   RANGED
 }
 
