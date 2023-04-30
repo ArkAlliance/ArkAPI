@@ -18,9 +18,9 @@ ArkAPI 将提供两种 API 接入方式：**RESTful API** 和 **GraphQL API** ([
 
 ### Setup
 
-- [Node.js](https://nodejs.org/) (>= 16)
-  - 强烈建议使用 [nvm](https://github.com/nvm-sh/nvm) 进行 Node.js 版本管理；通过 nvm 可直接使用 `.nvmrc` 文件中的版本号安装 Node.js: `nvm install`
-- **请注意：**项目使用 [npm](https://www.npmjs.com/) 进行依赖管理（而非 [yarn](https://yarnpkg.com/)）；不当使用包管理器可能导致项目依赖不一致，从而导致项目无法正常运行，因此请务必使用 npm 进行所有操作。
+- [Node.js](https://nodejs.org/) (>= 18)
+  - 强烈建议使用 Node.js 版本管理工具。[fnm (推荐)](https://github.com/Schniz/fnm)、[nvm](https://github.com/nvm-sh/nvm) 均为不错的方案。通过 fnm 或 nvm 均可直接引用项目中的 `.nvmrc` 文件中的版本号安装正确版本的 Node.js: `fnm install` 或 `nvm install`
+- **请注意：** 项目使用 [pnpm](https://pnpm.io/installation) 进行依赖管理；不当使用包管理器可能导致项目依赖不一致，从而导致项目无法正常运行，因此请务必使用 `pnpm` 进行所有操作。
 
 ### Install
 
